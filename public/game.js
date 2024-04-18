@@ -6,8 +6,8 @@ import {isDisabled$$$, changeFlag, drawArticle, handleArticleSelection, selected
 import { TestText, nameArticle, MyText, Questions } from './text.js';
 
 export const canvas = document.getElementById('gameCanvas');
-canvas.width = 750;
-canvas.height = 1200;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 export const ctx = canvas.getContext('2d');
 export const canvasWidth = canvas.width;
 export const canvasHeight = canvas.height;
@@ -56,8 +56,8 @@ Promise.all(Object.values(images).map(image => new Promise(resolve => {
 
 function drawCharacterSelectionButtons() {
     ctx.clearRect(0, 0, canvas.width, canvas.height); 
-    ctx.drawImage(images[1], 0.47*canvasWidth, canvasHeight - (0.33*canvasHeight), 0.33*canvasHeight , 0.33*canvasHeight );
-    ctx.drawImage(images[0], 0, canvasHeight - (0.33*canvasHeight), 0.33*canvasHeight, 0.33*canvasHeight);
+    ctx.drawImage(images[0], -10, canvasHeight - (0.33*canvasHeight), 0.33*canvasHeight , 0.33*canvasHeight );
+    ctx.drawImage(images[1], canvasWidth - (0.33*canvasHeight), canvasHeight - (0.33*canvasHeight), 0.33*canvasHeight, 0.33*canvasHeight);
     MyText('ВЫБЕРИ СВОЕГО ПЕРСОНАЖА', 0, 0.1*canvasHeight, '#ffffff', font, 'Montserrat', 'center');
     drawButton(0.2*canvasWidth, 0.18*canvasHeight, 0.6*canvasWidth, 0.10*canvasHeight, 'Мошенник', 0.045*canvasHeight);
     drawButton(0.2*canvasWidth, 0.30*canvasHeight, 0.6*canvasWidth, 0.10*canvasHeight, 'Суперкоп', 0.045*canvasHeight);
@@ -94,6 +94,7 @@ function drawUpSkills(){
     const buttonHeight = 0.103 * canvasHeight;
     const buttonSpacing = 0.103 * canvasHeight;
     const buttonCount = 7;
+    const otstup = 10;
     const startY = 0.135 * canvasHeight;
     const articles = ['Основы кибербезопасности', 'Пароли и аутентификация', 'Социальная инженерия',
                       'Защита персон-х данных','Сетевая безопасность','Защита устройств', 
@@ -101,7 +102,7 @@ function drawUpSkills(){
     drawButton(0.055*canvasWidth, 0.125 * canvasHeight, 0.89*canvasWidth, 0.74*canvasHeight, '',font*1.26, false);
     for (let i = 0; i < buttonCount; i++) {
         const buttonY = startY + i * buttonSpacing;
-        drawButton(0.07 * canvasWidth, buttonY, 0.86 * canvasWidth, buttonHeight, `${articles[i]}`, font * 0.96, false);
+        drawButton(0.055 * canvasWidth + otstup , buttonY, 0.89*canvasWidth - 2*otstup, buttonHeight, `${articles[i]}`, font * 0.96, false);
     }
     drawButton(0.1 * canvasWidth, 0.88 * canvasHeight, 0.32 * canvasWidth, 0.08 * canvasHeight, 'Меню', 0.03 * canvasHeight, false);
 

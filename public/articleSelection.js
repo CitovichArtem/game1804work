@@ -60,11 +60,12 @@ export let answers = [
 ];
 
 export const drawArticle = (selectedArticle, list, nameArticle) => {
+    var otstup = 20;
     text = TestText[selectedArticle-1][list];
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     MyText(nameArticle, 0, 0.1*canvasHeight, '#ffffff', font, 'Montserrat', 'center');
     drawButton(0.055*canvasWidth, 0.125 * canvasHeight, 0.89*canvasWidth, 0.74*canvasHeight, '',font, false);
-    wrapText(ctx, text, 0.095*canvasWidth,0.175 * canvasHeight,0.85*canvasWidth, font);
+    wrapText(ctx, text, 0.055*canvasWidth + otstup,0.175 * canvasHeight,0.89*canvasWidth - 2*otstup, font);
     drawButton(0.1 * canvasWidth, 0.88 * canvasHeight, 0.32 * canvasWidth, 0.08 * canvasHeight, 'Меню', 0.03 * canvasHeight, false);
     drawButton(0.6 * canvasWidth, 0.88 * canvasHeight, 0.32 * canvasWidth, 0.08 * canvasHeight, '<        >', 0.03 * canvasHeight, false);
     drawButton(0.44 * canvasWidth, 0.88 * canvasHeight, 0.14 * canvasWidth, 0.08 * canvasHeight, '$$$', 0.03 * canvasHeight,answers[selectedArticle-1][list][3] !== -2 ? false : true);

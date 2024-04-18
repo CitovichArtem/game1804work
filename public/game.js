@@ -1,9 +1,9 @@
-//добавить кнопку возврата со странице вопроса на лист статьи
+//готово
 import {images} from './resources.js';
 import { drawButton } from './button.js';
 import { handleCharacterSelection } from './characterSelection.js';
 import {isDisabled$$$, changeFlag, drawArticle, handleArticleSelection, selectedArticle, drawQuestion,changeNumberAnswer, drawAnswer, answerFeedBack } from './articleSelection.js';
-import { TestText, nameArticle, MyText, Questions } from './text.js';
+import {TestText, nameArticle, MyText, Questions } from './text.js';
 
 export const canvas = document.getElementById('gameCanvas');
 canvas.width = window.innerWidth;
